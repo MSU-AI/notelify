@@ -34,7 +34,7 @@ export default function SideBar() {
       <div
         ref={sidebarRef}
         id="docs-sidebar"
-        className={`flex flex-col justify-between hs-overlay transition-all duration-300 transform fixed top-0 start-0 bottom-0 z-[60] min-w-[260px] w-[13%] bg-white dark:bg-[#181818] dark:border-[#262626] border-e border-gray-200 overflow-y-auto lg:end-auto lg:bottom-0 ${expanded ? "translate-x-0" : "-translate-x-full"
+        className={`flex flex-col justify-between hs-overlay transition-all duration-300 transform fixed top-0 start-0 bottom-0 z-[60] min-w-[350px] w-[13%] bg-white dark:bg-[#181818] dark:border-[#262626] border-e border-gray-200 overflow-y-auto lg:end-auto lg:bottom-0 ${expanded ? "translate-x-0" : "-translate-x-full"
           }`}
       >
         <nav

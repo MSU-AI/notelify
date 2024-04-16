@@ -98,6 +98,7 @@ const TiptapEditor = forwardRef<ModifiedEditorHandle>((props, ref) => {
         margin: "auto",
         overflow: "auto",
         padding: "20px",
+        marginLeft: "10vw",
       }}
     >
       <EditorContent className="markdownPreview" editor={editor} />

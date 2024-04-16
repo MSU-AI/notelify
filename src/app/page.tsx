@@ -5,21 +5,21 @@ import SideBar from "@/components/SideBar";
 import React, { useEffect, useRef, useState } from "react";
 import ModifiedEditor, { ModifiedEditorHandle } from "@/components/Editor";
 
-
 const bmcId = process.env.BMC_ID as string;
 //if (bmcId == "") throw new Error("Buy me a coffee key not found");
 
 export default function Home() {
-
   const editorRef = useRef<ModifiedEditorHandle>(null);
   const [isEditorReady, setIsEditorReady] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearch = async (event: React.FormEvent) => {
     event.preventDefault();
 
     // Make a GET request to the /api/search endpoint with searchQuery as a query parameter
-    const response = await fetch(`/api/search?query=${encodeURIComponent(searchQuery)}`);
+    const response = await fetch(
+      `/api/search?query=${encodeURIComponent(searchQuery)}`
+    );
 
     // Parse the JSON response
     const results = await response.json();
@@ -53,7 +53,7 @@ export default function Home() {
   return (
     <>
       <SideBar></SideBar>
-      <main className="flex flex-col items-center justify-between pt-4 pl-24 pr-12">
+      <main className="flex flex-col items-center justify-between pt-4 pl-24">
         {/* <div className="h-full w-[15%] min-w-[20rem] absolute left-0 top-0 bg-gray-200"></div> */}
 
         {/* <form onSubmit={handleSearch}>
@@ -70,15 +70,14 @@ export default function Home() {
               fontWeight: "450",
               marginBottom: "20px",
             }}
-          >
-          </h1>
+          ></h1>
         </div>
 
         <div className="flex flex-row">
-          <div className="bg-transparent text-white w-full outline outline-2 rounded-full px-4 py-2 outline-[#505050]">
+          <div className="bg-transparent text-white w-full outline outline-2 rounded-full px-4 py-1 outline-[#505050]">
             <div className="flex flex-row gap-2">
-              <img className="px-1" src="mic.svg" alt=""></img>
-              <img className="px-1" src="desktopAudio.svg" alt=""></img>
+              <MicAudioButton editorRef={editorRef} />
+              <DesktopAudioButton editorRef={editorRef} />
               <img className="px-1" src="volume.svg" alt=""></img>
               <img className="px-1" src="play.svg" alt=""></img>
             </div>
@@ -102,9 +101,6 @@ export default function Home() {
             className="absolute right-2 top-1 h-3 w-3 rounded-full bg-red-500"
           ></button>
         </div> */}
-
-        <DesktopAudioButton editorRef={editorRef} />
-        <MicAudioButton editorRef={editorRef} />
       </main>
     </>
   );
